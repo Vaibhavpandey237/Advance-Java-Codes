@@ -1,0 +1,36 @@
+// insert the table in jdbc
+package database_Connect;
+import java.sql.*;
+
+public class Main3 {
+
+	    public static void main(String[] args) {
+
+	    	
+	    	        String url ="jdbc:oracle:thin:@localhost:1521:xe";
+	    	        String username = "system";
+	    	        String password = "Vkp@8052";
+	    	        
+	    	        try {
+	    	            Connection con = DriverManager.getConnection(url, username, password);
+	    	            System.out.println("connection established");
+
+	    	            String sql = "INSERT INTO empl2 VALUES (?, ?, ?)";
+	    	            PreparedStatement ps = con.prepareStatement(sql);
+
+	    	            
+	    	            ps.setString(1, "E1");
+	    	            ps.setString(2, "Rohan");
+	    	            ps.setInt(3, 15000);
+	    	            
+	    	            ps.executeUpdate();
+
+	    	            System.out.println("Data inserted successfully");
+
+	    	        } catch (Exception e) {
+	    	            e.printStackTrace();
+	    	        }
+	    	    }
+	    	}
+
+
