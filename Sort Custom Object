@@ -1,0 +1,26 @@
+import java.util.*;
+
+class Student {
+    int marks;
+    String name;
+
+    Student(String name, int marks) {
+        this.name = name;
+        this.marks = marks;
+    }
+}
+
+public class SortStudentByMarks {
+    public static void main(String[] args) {
+        List<Student> list = new ArrayList<>();
+        list.add(new Student("Aman", 75));
+        list.add(new Student("Riya", 90));
+        list.add(new Student("Karan", 60));
+
+        list.sort(Comparator.comparingInt(s -> s.marks));
+
+        for (Student s : list) {
+            System.out.println(s.name + " " + s.marks);
+        }
+    }
+}
